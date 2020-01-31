@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  skip_before_action :check_sec_login, only: :login
+  skip_before_action :check_sec_login, only: [:login, :new]
 
   # GET /employees/login
   def login
