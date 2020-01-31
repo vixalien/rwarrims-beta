@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= "#{@n} #{@status.capitalize} attendances" %></h1>
-<%= console %>
 <% new_day = @new_day %>
 <% old_day = @old_day %>
 <p>From <strong><%= @old_day.strftime("%a %d %b %Y") %></strong> to <strong><%= @new_day.strftime("%a %d %b %Y") %></strong></p> 
