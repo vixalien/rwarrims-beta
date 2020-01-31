@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  approved: false
+  approved_by: 
+  employee: one
+
+two:
+  title: MyString
+  approved: false
+  approved_by: 
+  employee: two

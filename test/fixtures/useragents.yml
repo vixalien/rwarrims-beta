@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full: MyString
+  browser: MyString
+  os: MyString
+  ua: one
+  ua_type: Ua
+
+two:
+  full: MyString
+  browser: MyString
+  os: MyString
+  ua: two
+  ua_type: Ua

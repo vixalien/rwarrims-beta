@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= pluralize(@leaves.count, "#{@n} #{@status.capitalize} leave")  %></h1>
+
+<% @leaves.each do |leave| %>
+<%= render 'admin_show_leave', leave: leave %>
+<p>
+  <%= link_to 'Show', admin_leave_path(leave) %> 
+  <%= link_to 'Recommend/Approve', recommend_admin_leave_path(leave) %> 
+  <%= link_to 'Edit', edit_admin_leave_path(leave) %> 
+  <%= link_to 'Destroy', admin_leave_path(leave), method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+<hr>
+<% end %>
+<%= console %>
+<br>
+<% content_for :panel do %>
+<h3>Filter</h3>
+<%= form_with method: "get", local: true do |form| %>
+
+  <div class="field">
+    <%= label_tag :recommended, "Recommended" %> <%= "(yes)" if params[:recommended].to_i == 1 %>
+    <%= check_box_tag :recommended %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :approved, "Approved" %> <%= "(yes)" if params[:approved].to_i == 1 %>
+    <%= check_box_tag :approved, 1 %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :employee, "Employee" %>
+    <% a = []; all = Employee.where.not(position: 7); all.each do |e|; a << [e.names, e.id]; end %>
+    <%= select_tag :employee, options_for_select(a) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update" %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New leave', new_leave_path %>
+
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

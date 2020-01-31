@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= "#{@n} #{@status.capitalize} attendances" %></h1>
+<%= console %>
+<% new_day = @new_day %>
+<% old_day = @old_day %>
+<p>From <strong><%= @old_day.strftime("%a %d %b %Y") %></strong> to <strong><%= @new_day.strftime("%a %d %b %Y") %></strong></p> 
+<table>
+  <thead>
+    <th>Date</th>
+    <th>Attendances</th>
+  </thead>
+  <tbody>
+<% Time.zone = "Africa/Kigali" %>
+<% lo_day = new_day %>
+<% total_time = 0 %>
+<% while lo_day != old_day %>
+  <% this_range = (lo_day.midnight.yesterday.tomorrow.to_date)..(lo_day.midnight.tomorrow.to_date) %>
+  <% this_days = @attendances.where(created_at: this_range) %>
+  <% if this_days.any? %>
+    <% week_time = 0 %>
+    <tr>
+      <td><%= lo_day.strftime("%a %d %b %Y") %></td>
+      <td>
+        <% for attendance in this_days %>
+            <p>
+              <strong>Checked In </strong>
+              <%= attendance.created_at.strftime("%r on %a %d %b %Y") %>
+            </p>
+            <p>
+              <strong>Checked Out </strong>
+              <%= attendance.updated_at.strftime("%r on %a %d %b %Y") %>
+            </p>
+            <%= week_time += (attendance.updated_at - attendance.created_at) %>
+          <hr>
+        <% end %>
+        <p>
+          <% total_time+=week_time %>
+          <strong>Daily Time worked </strong>
+          <%= (week_time/86400).to_i.to_s+"days " if week_time/86400 > 1 %>
+          <%= week_time%=86400;(week_time/3600).to_i.to_s+"m " if (week_time/3600) > 1 %>
+          <%= week_time%=3600;(week_time/60).to_i.to_s+"m " if (week_time/60) > 1 %>
+          <%= week_time%=60;(week_time).to_i.to_s+"s " if (week_time) > 1 %>
+        </p>
+      </td>
+    </tr>
+  <% end %>
+  <% lo_day = lo_day.yesterday %>
+<% end %>
+    <tr>
+      <td>
+        Total
+      </td>
+      <td>
+        <strong>Total Time worked </strong>
+        <%= (total_time/86400).to_i.to_s+"days " if total_time/86400 > 1 %>
+        <%= total_time%=86400;(total_time/3600).to_i.to_s+"m " if (total_time/3600) > 1 %>
+        <%= total_time%=3600;(total_time/60).to_i.to_s+"m " if (total_time/60) > 1 %>
+        <%= total_time%=60;(total_time).to_i.to_s+"s " if (total_time) > 1 %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<% content_for :panel do %>attendances/panel<% end %>

@@ -1,0 +1,22 @@
+<p>
+	<strong>Title </strong>
+	<%= document.title %>
+</p>
+<p>
+	<strong>Approved </strong>
+	<%= document.approved %>
+</p>
+<p>
+	<strong>Preview </strong><br>
+	<% if document.attachment.content_type.start_with? "image" %>
+    <%= image_tag url_for(document.attachment),width: 100, height: 100 %>
+  <% else %>
+  	No Preview
+  <% end -%>
+</p>
+<p>
+	<%= link_to 'Show', document %> 
+  <!--<%= link_to 'Edit', edit_document_path(document) %> -->
+  <%= link_to 'Download', url_for(document.attachment) %> 
+  <!--<%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } %>-->
+</p>

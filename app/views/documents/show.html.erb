@@ -1,0 +1,10 @@
+<h1>Show Document</h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'show_form', document: @document %>
+
+<% content_for :panel do %>
+<%= link_to 'Back', documents_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

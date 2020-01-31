@@ -1,0 +1,38 @@
+<%= form_with model: leave, local: true, url: "/admin/leaves/#{leave.id}/change" do |form| %>
+  <% if leave.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(leave.errors.count, "error") %> prohibited this leave from being saved:</h2>
+
+      <ul>
+      <% leave.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= console %>
+  <p>
+    <strong>Reason </strong>
+    <%= leave.reason %>
+  </p>
+  <p>
+    <strong>By </strong>
+    <%= leave.employee.names %>
+  </p>
+
+  <div class="field">
+    <%= form.label :recommended %>
+    <%= form.check_box :recommended %>
+  </div>
+
+  <% if @p.to_i == 6 %>
+    <div class="field">
+      <%= form.label :approved %>
+      <%= form.check_box :approved %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

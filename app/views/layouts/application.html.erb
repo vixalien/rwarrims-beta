@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rwarrims</title>
+    <title><%= controller_name.capitalize %> <%= action_name.capitalize %> - Rwarrims</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="display: flex">
+    <div class="nav" style="padding-right: 50px">
+      <h1>RwarriMS</h1>
+      <h3>Employee <% if current_employee.admin == true %>
+                  <%= link_to "Switch", admin_employees_path %><br>
+                <% end %></h3>
+      <%= link_to "Home", home_path %><br>
+      <%= link_to "Attendance", new_attendance_path %><br>
+      <%= link_to "Documents", documents_path %><br>
+      <%= link_to "Leaves", leaves_path %><br>
+      <%= link_to "Me", me_path %><br>
+      <%= link_to "Sessions", sessions_path %><br>
+    </div>
+    <div class="body" style="flex: 1">
+      <%= yield %>
+    </div>
+    <div class="panel" style="max-width: 30%; padding-left: 50px; padding-top: 25px">
+      <% if (yield :panel).present? %>
+        <% if (yield :panel_type) == "inline" %>
+          <%= yield :panel %>
+        <% else %>
+          <%= render yield :panel %>
+        <% end %>
+      <% end %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,9 @@
+<h1>Change recommendation status</h1>
+
+<%= render 'recommend_form', leave: @leave %>
+
+<% content_for :panel do %>
+<%= link_to 'Show', admin_leaves_path(@leave) %> |
+<%= link_to 'Back', admin_leaves_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

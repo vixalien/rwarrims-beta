@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= pluralize(@documents.count, " #{@only} document") %></h1>
+
+    <% @documents.each do |document| %>
+      <%= render 'show_form', document: document %>
+			<p>
+				<%= link_to 'Show', admin_document_path(document) %> 
+			  <%= link_to 'Edit', edit_admin_document_path(document) %> 
+			  <%= link_to 'Approve', approve_admin_document_path(document) %> 
+			  <%= link_to 'Download', url_for(document.attachment) %> 
+			  <%= link_to 'Delete', admin_document_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</p>
+      <hr>
+    <% end %>
+<%= console %>
+
+<br>
+
+<% content_for :panel do %>
+<h3>Filter</h3>
+<%= form_with method: :get, local: :true do |form| %>
+	<%= form.radio_button :only, :all %> All<br>
+	<%= form.radio_button :only, :pending %> Pending<br>
+	<%= form.radio_button :only, :approved %> Approved<br>
+	<p>
+		<%= form.submit "Update", :disable_with => 'Updating...' %>
+	</p>
+<% end %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

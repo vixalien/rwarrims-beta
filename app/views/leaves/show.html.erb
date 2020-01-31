@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reason </strong>
+  <%= @leave.reason %>
+</p>
+<p>
+  <strong>By </strong>
+  <%= @leave.employee.names %>
+</p>
+<p>
+  <strong>Start </strong>
+  <%= @leave.start %>
+</p>
+<p>
+  <strong>End </strong>
+  <%= @leave.end %>
+</p>
+<p>
+  <strong>Expected to be at workplace </strong>
+  <%= @leave.expected %>
+</p>
+<p>
+  <strong>Recommended </strong>
+  <%= @leave.recommended %>
+</p>
+<% if @leave.recommended %>
+  <p>
+    <strong>Approved </strong>
+    <%= @leave.approved %>
+  </p>
+<% end %>
+
+<% content_for :panel do %>
+<%= link_to 'Edit', edit_leave_path(@leave) %> |
+<%= link_to 'Back', leaves_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>
+

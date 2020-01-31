@@ -1,0 +1,55 @@
+<p>
+  <strong>Names:</strong>
+  <%= employee.names %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= employee.email %>
+</p>
+
+<%= form_with model: employee, local: true, url: "/admin/employees/#{employee.id}" do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.hidden_field :password_only, value: @password %>
+
+<% if employee.position.to_i == 7 %>
+
+  <div class="field">
+    <%= form.label :department %>
+    <%= select_tag "employee[department]", options_for_select(getDepartmentOptions) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :head, "Head of Department" %>
+    <%= form.check_box :head %>
+  </div>
+
+  <div class="field">
+    <%= form.label :admin %>
+    <%= form.check_box :admin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= select_tag "employee[position]", options_for_select(getPositionOptions) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% else %>
+  <div id="notice">The employee you are trying to recruit is already recruited</div>
+<% end %>
+
+<% end %>

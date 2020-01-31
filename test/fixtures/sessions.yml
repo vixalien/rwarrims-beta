@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: MyString
+  text: 
+  employee: one
+
+two:
+  state: MyString
+  text: 
+  employee: two

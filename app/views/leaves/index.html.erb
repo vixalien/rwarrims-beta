@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My <%= pluralize(@leaves.count, " #{@status.capitalize} leave") %></h1>
+
+<% @leaves.each do |leave| %>
+<p>
+  <strong>Reason </strong>
+  <%= leave.reason %>
+</p>
+<p>
+  <strong>By </strong>
+  <%= leave.employee.names %>
+</p>
+<p>
+  <strong>Start </strong>
+  <%= leave.start %>
+</p>
+<p>
+  <strong>Expected to be at workplace </strong>
+  <%= leave.expected %>
+</p>
+<p>
+  <strong>End </strong>
+  <%= leave.end %>
+</p>
+<p>
+  <strong>Recommended </strong>
+  <%= leave.recommended %>
+</p>
+<% if leave.recommended %>
+<p>
+  <strong>Approved </strong>
+  <%= leave.approved %>
+</p>
+<% end %>
+<p>
+  <%= link_to 'Show', leave %> 
+  <%= link_to 'Edit', edit_leave_path(leave) %> 
+  <%= link_to 'Destroy', leave, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+<hr>
+<% end %>
+<br>
+
+<% content_for :panel do %>
+<h3>Filter</h3>
+<%= form_with method: "get", local: true do |form| %>
+
+  <div class="field">
+    <%= label_tag :recommended, "Recommended" %> <%= "(yes)" if params[:recommended].to_i == 1 %>
+    <%= check_box_tag :recommended %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :approved, "Approved" %> <%= "(yes)" if params[:approved].to_i == 1 %>
+    <%= check_box_tag :approved, 1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update" %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New leave', new_leave_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

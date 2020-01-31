@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= controller_name.capitalize %> <%= action_name.capitalize %> - Rwarrims</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="display: flex">
+    <div class="nav" style="padding-right: 50px">
+      <h1>RwarriMS</h1>
+      <%= link_to "Login", employees_login_path %><br>
+      <%= link_to "New Employee", new_employee_path %><br>
+      <%= link_to "Help", index_help_path %>
+    </div>
+    <div class="body">
+      <%= yield %>
+    </div>
+    <div class="panel" style="max-width: 30%; padding-left: 50px; padding-top: 25px">
+      <% if (yield :panel).present? %>
+        <% if (yield :panel_type) == "inline" %>
+          <%= yield :panel %>
+        <% else %>
+          <%= render yield :panel %>
+        <% end %>
+      <% end %>
+    </div>
+  </body>
+</html>

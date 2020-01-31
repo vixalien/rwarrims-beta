@@ -1,0 +1,32 @@
+<h1>Approve Document</h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'show_form', document: @document %>
+<%= form_with model: @document, local: true, url: "/admin/documents/#{@document.id}" do |form| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :approved %>
+    <%= form.check_box :approved %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<% content_for :panel do %>
+<%= link_to 'Back', admin_documents_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

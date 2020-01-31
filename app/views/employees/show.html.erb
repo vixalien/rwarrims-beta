@@ -1,0 +1,32 @@
+<h1>Logged In as</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Names:</strong>
+  <%= @employee.names %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Idcard:</strong>
+  <%= @employee.idcard %>
+</p>
+
+<% if @employee.admin %>
+<p>
+  <strong>Admin:</strong>
+  <%= @employee.admin %>
+</p>
+<% end %>
+
+<p>
+  <strong>Position:</strong>
+  <%= getPositionId @employee.position %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Log out', @current_session, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,29 @@
+<p>
+  <strong>Names:</strong>
+  <%= employee.names %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= employee.email %>
+</p>
+
+<p>
+  <strong>Idcard:</strong>
+  <%= employee.idcard %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= employee.admin %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= getDepartmentId employee.department %> <%= "(Head of Department)" if employee.head %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= getPositionId employee.position %>
+</p>

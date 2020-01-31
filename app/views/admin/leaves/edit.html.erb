@@ -1,0 +1,7 @@
+<h1>Editing leave</h1>
+
+<%= render 'form', leave: @leave %>
+
+<%= link_to 'Show', admin_leaves_path(@leave) %> |
+<%= link_to 'Recommend/Approve', recommend_admin_leave_path(@leave) %> |
+<%= link_to 'Back', admin_leaves_path %>

@@ -1,0 +1,7 @@
+<h1>New leave</h1>
+
+<%= render 'form', leave: @leave %>
+<% content_for :panel do %>
+<%= link_to 'Back', leaves_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

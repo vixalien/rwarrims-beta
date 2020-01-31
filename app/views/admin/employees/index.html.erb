@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= pluralize(@employees.count, "#{@status} Employee") %></h1>
+
+<% @employees.each do |e| %>
+<%= render 'admin_show_form', employee: e %>
+<p>
+	<% if e.position.to_i == 7 %>
+		<%= link_to 'Recruit', recruit_admin_employee_path(e) %> 
+	<% end %>
+  <%= link_to 'Show', admin_employee_path(e) %> 
+  <%= link_to 'Edit', edit_admin_employee_path(e) %> 
+  <%= link_to 'Destroy', admin_employee_path(e), method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+<hr>
+<% end %>
+<% content_for :panel do %>
+<h3>Filter</h3>
+<%= form_with method: "get", local: true do |form| %>
+
+  <div class="field">
+    <%= label_tag :all, "All" %> <%= "(yes)" if params[:pending] == nil && params[:accepted] == nil  %>
+    <%= check_box_tag :all %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :pending, "Pending" %> <%= "(yes)" if params[:pending].to_i == 1 %>
+    <%= check_box_tag :pending %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :accepted, "Accepted" %> <%= "(yes)" if params[:accepted].to_i == 1 %>
+    <%= check_box_tag :accepted, 1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update" %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
+
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

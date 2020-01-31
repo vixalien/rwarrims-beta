@@ -1,0 +1,21 @@
+<%= form_with url: "/sessions", scope: :session, local: true do |form| %>
+
+  <% if logged_in? == true %>
+  <p>
+    An employee, <strong><%= current_employee.names %></strong> is already logged in.
+  </p>
+  <% end %>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Log In"  %>
+  </div>
+<% end %>

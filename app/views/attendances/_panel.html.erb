@@ -1,0 +1,32 @@
+<%= link_to 'Attendance status', new_attendance_path %>
+<br>
+<h3>Filter</h3>
+<%= form_with method: "get", local: true do |form| %>
+  <div class="field">
+    <%= label_tag :date_year, "Start Year" %>
+    <%= select_year Date.today %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :date_month, "Start Month" %>
+    <%= select_month Date.today %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :date_day, "Start Day" %>
+    <%= select_day Date.today %>
+  </div>
+
+  <div class="field">
+    <%= radio_button_tag("date[scope]", "month") %> Month<br>
+    <%= radio_button_tag("date[scope]", "week") %> Week<br>
+  </div>
+
+  <p>
+    <strong>How it works. </strong> The system will start on the date specified above and then show all the attendances that happened, going back until the start of the week or month as specified.
+  </p>
+
+  <div class="actions">
+    <%= form.submit "Update" %>
+  </div>
+<% end %>

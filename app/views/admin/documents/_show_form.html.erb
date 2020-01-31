@@ -1,0 +1,26 @@
+<p>
+	<strong>Title </strong>
+	<%= document.title %>
+</p>
+<p>
+	<strong>Approved </strong>
+	<%= document.approved %>
+</p>
+<% if document.approved %>
+	<p>
+		<strong>Approved by </strong>
+		<%= Employee.find(document.approved_by).names %>
+	</p>
+<% end %>
+<p>
+	<strong>By </strong>
+	<%= document.employee.names %>
+</p>
+<p>
+	<strong>Preview </strong><br>
+	<% if document.attachment.content_type.start_with? "image" %>
+    <%= image_tag url_for(document.attachment),width: 100, height: 100 %>
+  <% else %>
+  	No Preview
+  <% end -%>
+</p>

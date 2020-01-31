@@ -1,0 +1,9 @@
+<h1>New Document</h1>
+
+<%= render 'form', document: @document %>
+
+
+<% content_for :panel do %>
+<%= link_to 'Back', documents_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

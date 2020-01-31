@@ -1,0 +1,28 @@
+<h1>Attendance Status</h1>
+
+<% if @attendance %>
+	<% state = @attendance.state %>
+	<% not_state = state.downcase == "in" ? "out" : "in" %>
+	<p>
+		Currently <strong><%= state %> </strong>
+	</p>
+	<p>
+		Checked <strong><%= state %></strong> at 
+		<% if state.downcase == "in" %>
+			<%= @attendance.created_at %> (Time worked: <%= DateTime.now - @attendance.created_at.to_datetime %>)
+		<% else %>
+			<%= @attendance.updated_at %>
+		<% end %>
+	</p>
+	<p>
+		<%= link_to "Check #{not_state}", "/attendances", method: :post, data: { confirm: 'Are you sure?' } %>
+	</p>
+<% else %>
+	<p>You never checked attendance</p>
+	<%= link_to 'Check In', "/attendances", method: :post, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<% content_for :panel do %>
+<%= link_to 'Log', attendances_path %>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

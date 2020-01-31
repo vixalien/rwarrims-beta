@@ -1,0 +1,9 @@
+<h1>Employee</h1>
+<p id="notice"><%= notice %></p>
+
+<%= render 'admin_show_form', employee: @employee %>
+<%= console %>
+
+<%= link_to 'Edit', edit_admin_employee_path(@employee) %> |
+<%= link_to 'Destroy', admin_employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', admin_employees_path %>

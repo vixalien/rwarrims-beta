@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All <%= "logged #{@only} " if @only %>sessions</h1>
+<%= link_to 'Delete all sessions', "/sessions/destroy_all", method: :delete, data: { confirm: 'Are you sure?. This will cause all where you logged in to be logged out.' } %>
+
+<% if @sessions.any? %>
+  <% @sessions.order(updated_at: :desc).each do |session| %>
+    <p>
+      <span>Logged</span>
+      <strong><%= session.state.capitalize %></strong>
+    </p>
+    <p>
+      <strong>Browser </strong>
+      <span><%= session.useragent.browser %></span>
+    </p>
+    <p>
+      <strong>On </strong>
+      <span><%= session.useragent.os %></span>
+    </p>
+    <p>
+      <strong>Logged In at </strong>
+      <span><%= session.created_at %></span>
+    </p>
+    <p>
+      <strong>Last Saw at </strong>
+      <span><%= session.updated_at %></span>
+    </p>
+    <p>
+      <% if session.state == "in" %>
+        <%= link_to 'Log Out', session, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </p>
+    <hr>
+  <% end %>
+<% else %>
+  <span>Nothing found</span><br>
+<% end %>
+
+<br>
+
+<% if @only.present? %>
+  <%= link_to 'Show all sessions', sessions_path %>
+<% end %>
+<% if @only != "in" %>
+  <%= link_to 'Show only active sessions', sessions_path({only: "in"}) %>
+<% end %>
+<% if @only != "out" %>
+  <%= link_to 'Show only logged out sessions', sessions_path({only: "out"}) %>
+<% end %>
