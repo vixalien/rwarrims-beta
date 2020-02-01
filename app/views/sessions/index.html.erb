@@ -37,7 +37,7 @@
 <% end %>
 
 <br>
-
+<% content_for :panel do %>
 <% if @only.present? %>
   <%= link_to 'Show all sessions', sessions_path %>
 <% end %>
@@ -46,4 +46,5 @@
 <% end %>
 <% if @only != "out" %>
   <%= link_to 'Show only logged out sessions', sessions_path({only: "out"}) %>
+<% end %>
 <% end %>

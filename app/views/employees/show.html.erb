@@ -28,5 +28,8 @@
   <%= getPositionId @employee.position %>
 </p>
 
+<% content_for :panel do %>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Sessions', sessions_path %> |
 <%= link_to 'Log out', @current_session, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

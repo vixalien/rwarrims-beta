@@ -4,15 +4,7 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    if params[:only] == "approved"
-      @only = "approved"
-      @documents = Document.where(approved: true, approved: true)
-    elsif params[:only] == "pending"
-      @only = "pending"
-      @documents = Document.where(approved: true, approved: false)
-    else
-      @documents = Document.where(approved: true)
-    end
+    @documents = Document.where(approved: true)
   end
 
   # GET /documents/1

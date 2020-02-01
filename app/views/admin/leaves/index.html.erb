@@ -28,10 +28,10 @@
   </div>
 
   <div class="field">
-    <%= label_tag :employee, "Employee" %>
-    <% a = []; all = Employee.where.not(position: 7); all.each do |e|; a << [e.names, e.id]; end %>
-    <%= select_tag :employee, options_for_select(a) %>
-  </div>
+    <h3>Employees</h3>
+    <% for employee in Employee.where.not(position: 7) %>
+        <%= check_box_tag "employee[]", employee.id, ("checked" if params[:employee].include? employee.id.to_s) %> <%= employee.names %><br>
+    <% end %>  </div>
 
   <div class="actions">
     <%= form.submit "Update" %>

@@ -4,7 +4,7 @@
 </p>
 <p>
   <strong>By </strong>
-  <%= leave.employee.names %>
+  <%= link_to leave.employee.names, admin_employee_path(leave.employee) %>
 </p>
 <p>
   <strong>Start </strong>
@@ -20,29 +20,17 @@
 </p>
 <p>
   <strong>Recommended </strong>
-  <%= leave.recommended %>
+  <%= leave.recommended %> 
+  <% if leave.recommended %>
+    (by <%= @e=Employee.find(leave.recommended_by); link_to @e.names, admin_employee_path(@e) %> on <%= leave.date_recommended %>)
+  <% end %>
 </p>
 <% if leave.recommended %>
   <p>
-    <strong>Recommended by </strong>
-    <%= Employee.find(leave.recommended_by).names %>
-  </p>
-  <p>
-    <strong>Recommended on </strong>
-    <%= leave.date_recommended %>
-  </p>
-  <p>
     <strong>Approved </strong>
     <%= leave.approved %>
+    <% if leave.approved %>
+      (by <%= @e=Employee.find(leave.approved_by); link_to @e.names, admin_employee_path(@e) %> on <%= leave.date_approved %>)
+    <% end %>
   </p>
-  <% if leave.approved %>
-    <p>
-      <strong>Approved by </strong>
-      <%= Employee.find(leave.approved_by).names %>
-    </p>
-    <p>
-      <strong>Approved on </strong>
-      <%= leave.date_approved %>
-    </p>
-  <% end %>
 <% end %>

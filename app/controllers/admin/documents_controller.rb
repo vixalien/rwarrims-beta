@@ -4,14 +4,16 @@ class Admin::DocumentsController < AdminController
   # GET /documents
   # GET /documents.json
   def index
+    params[:employee] ||= Employee.all.ids
+    @employees = Employee.find(params[:employee])
     if params[:only] == "approved"
       @only = "Approved"
-      @documents = current_employee.documents.where(approved: true)
+      @documents = Document.where(approved: true, employee: @employees)
     elsif params[:only] == "pending"
       @only = "Pending"
-      @documents = current_employee.documents.where(approved: false)
+      @documents = Document.where(approved: false, employee: @employees)
     else
-      @documents = current_employee.documents.all
+      @documents = Document.where(employee: @employees)
     end
   end
 

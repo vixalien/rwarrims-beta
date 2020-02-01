@@ -20,7 +20,12 @@
     <%= radio_button_tag "date[scope]", "month", ("checked" if params[:date][:scope] == "month") %> Month<br>
     <%= radio_button_tag "date[scope]", "week", ("checked" if params[:date][:scope] == "week")  %> Week<br>
   </div>
-
+  <div class="field">
+    <h3>Employees</h3>
+    <% for employee in Employee.where.not(position: 7) %>
+        <%= check_box_tag "employee[]", employee.id, ("checked" if params[:employee].include? employee.id.to_s) %> <%= employee.names %><br>
+    <% end %>
+  </div>
   <p>
     <strong>How it works. </strong> The system will start on the date specified above and then show all the attendances that happened, going back until the start of the week or month as specified.
   </p>

@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :check_sec_login
   before_action :set_controller_name
 
-  def set_controller_name
-    @controller_name = controller_name
-  end
-
 	def check_sec_login
     case helpers.verbose_logged_in?
     when true
@@ -22,6 +18,10 @@ class ApplicationController < ActionController::Base
 
   def set_admin_layout
     render layout: "layouts/admin"
+  end
+
+  def set_controller_name
+    @controller = controller_name
   end
 
   def update_session

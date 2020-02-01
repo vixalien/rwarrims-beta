@@ -27,3 +27,8 @@
   <strong>Position:</strong>
   <%= getPositionId employee.position %>
 </p>
+<p>
+  <%= link_to "Leaves", admin_leaves_path("employee[]": employee.id) %> |
+  <%= link_to "Attendances", admin_attendances_path("employee[]": employee.id) %> |
+  <%= link_to "Documents", admin_documents_path("employee[]": employee.id) %>
+</p>

@@ -36,7 +36,9 @@ class SessionsController < ApplicationController
     employee = Employee.find_by(email: login_params[:email])
     
     if employee.present?
-      if employee.password == login_params[:password]
+    	if employeee.position == 7
+    		redirect_to '/me', notice: "Your account is still pending, wait for Administrators to confirm"
+      elsif employee.password == login_params[:password]
         helpers.log_in(employee, request.headers["User-Agent"], request.remote_ip)
         redirect_to '/me'
       else

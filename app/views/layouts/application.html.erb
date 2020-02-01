@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= controller_name.capitalize %> <%= action_name.capitalize %> - Rwarrims</title>
+    <title><%= action_name.downcase.gsub("index","all").capitalize %> <%= controller_name.downcase.gsub("index","home").capitalize %> - Rwarrims</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,14 +13,14 @@
     <div class="nav" style="padding-right: 50px">
       <h1>RwarriMS</h1>
       <h3>Employee <% if current_employee.admin == true %>
-                  <%= link_to "Switch", admin_employees_path %><br>
+                  <%= link_to "Switch", admin_path %><br>
                 <% end %></h3>
       <%= link_to "Home", home_path %><br>
       <%= link_to "Attendance", new_attendance_path %><br>
       <%= link_to "Documents", documents_path %><br>
       <%= link_to "Leaves", leaves_path %><br>
       <%= link_to "Me", me_path %><br>
-      <%= link_to "Sessions", sessions_path %><br>
+      <%= link_to "Help", help_path %>
     </div>
     <div class="body" style="flex: 1">
       <%= yield %>
@@ -30,7 +30,11 @@
         <% if (yield :panel_type) == "inline" %>
           <%= yield :panel %>
         <% else %>
+        <% begin %>
           <%= render yield :panel %>
+        <% rescue Exception => e %>
+          <%= yield :panel %>
+        <% end %>
         <% end %>
       <% end %>
     </div>

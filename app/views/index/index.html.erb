@@ -1,17 +1,25 @@
 <h1>Home</h1>
 <p>
-	<h3>Attendance</h3>
-	<span>Currently out</span>
+	<h3><%= link_to "Attendances", attendances_path %></h3>
+	<% state = current_employee.attendances.last.state %>
+	<% not_state = state.downcase == "in" ? "out" : "in" %>
+	<span>
+		Currently <strong><%= state %> </strong>
+	</span>
 </p>
 <p>
-	<h3>Leaves</h3>
-	<span>1 accepted leave, 2 pending leaves</span>
+	<h3><%= link_to "Leaves", leaves_path %></h3>
+	<span><%= pluralize current_employee.leaves.all.count, "leave" %></span>
 </p>
 <p>
-	<h3>Documents</h3>
-	<span>3 documents available</span>
+	<h3><%= link_to "Documents", documents_path %></h3>
+	<span><%= pluralize Document.where(approved: true).count, "document" %> available</span>
 </p>
 <p>
-	<h3>Me</h3>
+	<h3><%= link_to "Me", me_path %></h3>
 	<span>Logged In as <strong><%= current_employee.names %></strong></span>
+</p>
+<p>
+	<h3><%= link_to "Help", help_path %></h3>
+	<span>View how to use RwarriMS</span>
 </p>

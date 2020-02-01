@@ -2,5 +2,7 @@
 
 <%= render 'form', employee: @employee %>
 
-<%= link_to 'Show', @employee %> |
+<% content_for :panel do %>
+<%= link_to 'Me', me_path %> |
 <%= link_to 'Back', employees_path %>
+<% end %>

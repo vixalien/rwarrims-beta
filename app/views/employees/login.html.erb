@@ -4,4 +4,5 @@
 
 <%= render 'employees/login_form', current_employee: @emp %>
 
-<%= link_to 'Back', employees_path %>
+<% content_for :panel do %>
+<%= link_to 'Back', employees_path %><% end %>

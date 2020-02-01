@@ -1,0 +1,27 @@
+<h1>Admin Home</h1>
+<p>
+	<h3><%= link_to "Documents", admin_documents_path %></h3>
+	<span><%= pluralize Document.where(approved: true).count, "document" %> approved, <%= pluralize Document.where.not(approved: true).count, "document" %> pending</span>
+</p>
+<p>
+	<h3><%= link_to "Attendances", admin_attendances_path %></h3>
+	<span>
+		View Attendance logs of Employees
+	</span>
+</p>
+<p>
+	<h3><%= link_to "Employees", admin_employees_path %></h3>
+	<span><%= pluralize Employee.where.not(position: 7).count, "employee" %>, <%= pluralize Employee.where(position: 7).count, "employee" %> pending</strong></span>
+</p>
+<p>
+	<h3><%= link_to "Leaves", admin_leaves_path %></h3>
+	<span><%= pluralize Leave.where(approved: true).count, "leave" %> approved, 
+	<% if current_employee.position.to_i == 6 %>
+		<%= pluralize Leave.where(recommended: true, approved: false).count, "leave" %> recommended but not yet approved, 
+	<% end %>
+	<%= pluralize Leave.where(recommended: false).count, "leave" %> pending</span>
+</p>
+<p>
+	<h3><%= link_to "Help", "/help#admin" %></h3>
+	<span>View how to use RwarriMS, for Administators</span>
+</p>

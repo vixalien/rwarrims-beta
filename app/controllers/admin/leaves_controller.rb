@@ -4,22 +4,17 @@ class Admin::LeavesController < AdminController
   # GET /leaves
   # GET /leaves.json
   def index
-    if params[:employee].to_i != 0
-      @employee = Employee.find(params[:employee].to_i)
-      @n = "#{@employee.names}'s"
-    else
-      @employee = Employee.all
-      @n = "Total"
-    end
+    params[:employee] ||= Employee.all.ids
+    @employees = Employee.find(params[:employee])
     if params[:recommended].to_i == 1
       @status = "recommended"
-      @leaves = Leave.where(employee: @employee, recommended: true)
+      @leaves = Leave.where(employee: @employees, recommended: true)
     elsif params[:approved].to_i == 1
       @status = "approved"
-      @leaves = Leave.where(employee: @employee, approved: true)
+      @leaves = Leave.where(employee: @employees, approved: true)
     else
       @status = ""
-      @leaves = Leave.where(employee: @employee)
+      @leaves = Leave.where(employee: @employees)
     end
   end
 

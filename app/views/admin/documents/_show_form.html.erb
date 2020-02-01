@@ -9,12 +9,13 @@
 <% if document.approved %>
 	<p>
 		<strong>Approved by </strong>
-		<%= Employee.find(document.approved_by).names %>
+		<% @e = Employee.find(document.approved_by) %>
+		<%= link_to @e.names, admin_employee_path(@e) %>
 	</p>
 <% end %>
 <p>
 	<strong>By </strong>
-	<%= document.employee.names %>
+	<%= link_to document.employee.names, admin_employee_path(document.employee) %>
 </p>
 <p>
 	<strong>Preview </strong><br>

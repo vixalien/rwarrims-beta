@@ -22,6 +22,10 @@
 	<%= form.radio_button :only, :all %> All<br>
 	<%= form.radio_button :only, :pending %> Pending<br>
 	<%= form.radio_button :only, :approved %> Approved<br>
+	<h3>Employees</h3>
+	<% for employee in Employee.where.not(position: 7) %>
+	    <%= check_box_tag "employee[]", employee.id, ("checked" if params[:employee].include? employee.id.to_s) %> <%= employee.names %><br>
+	<% end %>
 	<p>
 		<%= form.submit "Update", :disable_with => 'Updating...' %>
 	</p>

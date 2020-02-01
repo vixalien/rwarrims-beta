@@ -1,4 +1,5 @@
 class IndexController < ApplicationController
+  layout 'layouts/outside'
   skip_before_action :check_sec_login, except: :admin
   def index
     if helpers.logged_in?
@@ -18,6 +19,11 @@ class IndexController < ApplicationController
   end
 
   def help
+    if helpers.logged_in?
+      render layout: "layouts/application"
+    else
+      render layout: "layouts/outside"
+    end
   end
 
   def admin
