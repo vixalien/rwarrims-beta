@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     
     if employee.present?
     	if employee.position == 7
-    		redirect_to '/me', notice: "Your account is still pending, wait for Administrators to confirm"
+    		redirect_to '/employees/new', notice: "Your account is still pending, wait for Administrators to confirm"
       elsif employee.password == login_params[:password]
         helpers.log_in(employee, request.headers["User-Agent"], request.remote_ip)
         redirect_to '/me', notice: "Successfully logged in"
