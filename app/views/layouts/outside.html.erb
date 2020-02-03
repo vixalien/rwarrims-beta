@@ -16,9 +16,9 @@
         <h2>RwarriMS<span class="menu-tog" id="menu-tog">menu</span></h2>
         <ul class="menu" id="main-menu">
           <li><input type="text" name="hello" placeholder="Search"></li>
-          <li><%= link_to "Login", employees_login_path %></li>
-          <li><%= link_to "New Employee", new_employee_path %></li>
-          <li><%= link_to "Help", help_path %></li>
+          <li <%= "selected" if params[:controller] == "employees" && params[:action] == "login" %>><%= link_to "Login", employees_login_path %></li>
+          <li <%= "selected" if params[:controller] == "employees" && params[:action] == "new" %>><%= link_to "New Employee", new_employee_path %></li>
+          <li <%= "selected" if params[:controller] == "index" && params[:action] == "help" %>><%= link_to "Help", help_path %></li>
         </ul>
       </div>
     </nav>

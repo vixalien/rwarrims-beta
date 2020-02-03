@@ -24,12 +24,12 @@
             <% end %>
           </h3>
           <li><input type="text" name="hello" placeholder="Search"></li>
-          <li><%= link_to "Home", home_path %></li>
-          <li><%= link_to "Attendance", new_attendance_path %></li>
-          <li><%= link_to "Documents", documents_path %></li>
-          <li><%= link_to "Leaves", leaves_path %></li>
-          <li><%= link_to "Me", me_path %></li>
-          <li><%= link_to "Help", help_path %></li>
+          <li <%= "selected" if params[:controller] == "index" && params[:action] == "index" %>><%= link_to "Home", home_path %></li>
+          <li <%= "selected" if params[:controller] == "attendances" %> ><%= link_to "Attendance", new_attendance_path %></li>
+          <li <%= "selected" if params[:controller] == "documents" %> ><%= link_to "Documents", documents_path %></li>
+          <li <%= "selected" if params[:controller] == "leaves" %> ><%= link_to "Leaves", leaves_path %></li>
+          <li <%= "selected" if params[:controller] == "employees" && params[:action] == "show" %> ><%= link_to "Me", me_path %></li>
+          <li <%= "selected" if params[:controller] == "index" && params[:action] == "help" %>><%= link_to "Help", help_path %></li>
         </ul>
       </div>
     </nav>
