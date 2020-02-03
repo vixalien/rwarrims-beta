@@ -48,12 +48,20 @@ module ApplicationHelper
     a
   end
 
+  def get_loc ip
+    ip = "41.186.83.143" if (ip == "::1" || ip == "127.0.0.1")
+    a = HTTP.get("http://www.geoplugin.net/json.gp", params: {ip: ip})
+    a = JSON.parse(a)
+    g = "geoplugin"
+    { country: a["#{g}_countryName"], city: a["#{g}_city"], ip: a["#{g}_request"], lat: a["#{g}_latitude"], long: a["#{g}_longitude"], state: a["#{g}_region"] }
+  end
+
   def log_in employee, useragent, ip
     s = employee.sessions.new(state: "in", cookie: generateuniquesecure)
     ua = s.build_useragent(os: useragent.split("(")[1].split(")")[0], browser: useragent.split("(").last.split(")").last.split(" ").first.gsub("/", " version "), full: useragent )
     cookies.encrypted[:ss_id] = {value: s.cookie,expires: Time.now + (60*60*24*10)}
-    ua.save
-    s.save
+    s.build_location(get_loc ip)
+    s.loc_updated_at = DateTime.now
   end
 
   def verbose_logged_in?

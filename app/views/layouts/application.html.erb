@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= console %>
     <title><%= action_name.downcase.gsub("index","all").capitalize %> <%= controller_name.downcase.gsub("index","home").capitalize %> - Rwarrims</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body class="flex horizontal">

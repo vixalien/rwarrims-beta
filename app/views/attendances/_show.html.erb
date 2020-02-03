@@ -13,7 +13,7 @@
 <% ttime = 0 %>
 <div class="blocks hours-main-block">
   <div class="block hours-log-table">
-    <table>
+    <table class="attendance-table">
       <thead>
         <th>Date</th>
         <th>Hours</th>
@@ -28,12 +28,18 @@
         <% attendances = allattendances.where(created_at: today.beginning_of_day..today.end_of_day) %>
         <td>
         <% for attendance in attendances %>
-          <hr>
-          <b>Check In</b> <%= attendance.created_at.strftime("%r on %a %d %b %Y") %><br>
-          <b>Check Out</b> <%= attendance.updated_at.strftime("%r on %a %d %b %Y") %><hr>
-          <% wtime = attendance.updated_at - attendance.created_at %>
-          <% ttime += wtime %>
-          <b>Time worked</b> <%= time_ago wtime %>
+          <br>
+          <div class="attendance">
+            <% if @admin %>
+            <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/<%= attendance.location.long %>,<%= attendance.location.lat %>,16/1000x400?access_token=pk.eyJ1Ijoidml4YWxpZW4iLCJhIjoiY2s2Nml4dWNxMDg4ZDNkcDZyamRwaG5uZiJ9.WinoZhj2C2TxDLXmbkzlpg" class="attendance-location"><br>
+            <b>At </b> <%= attendance.location.city %>, <%= attendance.location.state %> <%= attendance.location.country %>
+            <% end %>
+            <b>Check In</b> <%= attendance.created_at.strftime("%r on %a %d %b %Y") %><br>
+            <b>Check Out</b> <%= attendance.updated_at.strftime("%r on %a %d %b %Y") %><br>
+            <% wtime = attendance.updated_at - attendance.created_at %>
+            <% ttime += wtime %>
+            <b>Time worked</b> <%= time_ago wtime %>
+          </div>
         <% end %>
         <% if attendances.empty? %>
           No attendances today 

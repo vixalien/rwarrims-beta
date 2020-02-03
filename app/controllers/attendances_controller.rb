@@ -26,19 +26,10 @@ class AttendancesController < ApplicationController
     @d ||= Date.today
   end
 
-  # GET /attendances/1
-  # GET /attendances/1.json
-  def show
-  end
-
   # GET /attendances/new
   def new
     @action_name = "status"
     @attendance = current_employee.attendances.last
-  end
-
-  # GET /attendances/1/edit
-  def edit
   end
 
   # POST /attendances
@@ -50,9 +41,11 @@ class AttendancesController < ApplicationController
         @attendance.state = "out"
       else
         @attendance = current_employee.attendances.new(state: "in")
+        @attendance.location = Location.new(helpers.get_loc request.ip)
       end
     else
       @attendance = current_employee.attendances.new(state: "in")
+      @attendance.location = Location.new(helpers.get_loc request.ip)
     end
 
     respond_to do |format|
@@ -63,30 +56,6 @@ class AttendancesController < ApplicationController
         format.html { render :new }
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /attendances/1
-  # PATCH/PUT /attendances/1.json
-  def update
-    respond_to do |format|
-      if @attendance.update(attendance_params)
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
-        format.json { render status: :ok, location: @attendance }
-      else
-        format.html { render :edit }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /attendances/1
-  # DELETE /attendances/1.json
-  def destroy
-    @attendance.destroy
-    respond_to do |format|
-      format.html { redirect_to attendances_url, notice: 'Attendance was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

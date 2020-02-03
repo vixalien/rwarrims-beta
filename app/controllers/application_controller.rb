@@ -28,6 +28,16 @@ class ApplicationController < ActionController::Base
     if helpers.logged_in?
       helpers.current_session.update(updated_at: DateTime.now)
     end
+    # Get a new location if 10 minutes have elapsed
+    if DateTime.now.to_i - helpers.current_session.loc_updated_at.to_i > (60 * 10)
+      s = helpers.current_session
+      if !s.location.present?
+        s.build_location
+      end
+      s.location.update(helpers.get_loc request.ip)
+      s.loc_updated_at = DateTime.now
+      s.save
+    end
   end
 
   def current_employee
