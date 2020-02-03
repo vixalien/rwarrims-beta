@@ -1,17 +1,27 @@
-<h1>Show Document</h1>
+<h2>Document</h2>
 
-<p id="notice"><%= notice %></p>
-
-<%= render 'show_form', document: @document %>
-<p>
-	<%= link_to 'Show', admin_document_path(@document) %> 
-  <%= link_to 'Edit', edit_admin_document_path(@document) %> 
-  <%= link_to 'Approve', approve_admin_document_path(@document) %> 
-  <%= link_to 'Download', url_for(@document.attachment) %> 
-  <%= link_to 'Delete', admin_document_path(@document), method: :delete, data: { confirm: 'Are you sure?' } %>
-</p>
+<div class="block document-preview-block document-show-block">
+	<div class="meta">
+		<% if @document.attachment.content_type.start_with? "image" %>
+	    <%= image_tag url_for(@document.attachment) %>
+	  <% else %>
+	  	No Preview
+	  <% end -%>
+	  <h4><%= @document.title %></h4>
+	  <small>by <strong class="by"><strong class="by"><%= link_to @document.employee.names, admin_employee_path(@document.employee) %></strong></strong></small>
+	  <small>uploaded <strong><%= time_ago_in_words(@document.created_at) %> ago</strong></small>
+	  <small class="flex">
+	  	<button><%= link_to 'Edit', edit_admin_document_path(@document) %> </button>
+	  	<button><%= link_to 'Approve', approve_admin_document_path(@document) %> </button>
+	  	<button><%= link_to 'Download', url_for(@document.attachment) %> </button>
+	  	<button class="outline delete-button"><%= link_to 'Delete', admin_document_path(@document), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+	  </small>
+	</div>
+</div>
 
 <% content_for :panel do %>
-<%= link_to 'Back', admin_documents_path %>
+<ul class="menu">
+  <li><%= link_to 'Back', admin_documents_path %></li>
+</ul>
 <% end %>
 <% content_for :panel_type do %>inline<% end %>

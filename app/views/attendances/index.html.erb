@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= @status.capitalize %> attendance log</h1>
+
 <%= render 'show', attendances: @attendances, new_day: @new_day, old_day: @old_day %>
 
 <br>
-<%= link_to 'Attendance status', new_attendance_path %>
 <% content_for :panel do %>panel<% end %>

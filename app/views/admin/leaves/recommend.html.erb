@@ -1,6 +1,10 @@
 <h1>Change recommendation status</h1>
 
+<div class="blocks hours-main-block">
+<div class="block leave-block">
 <%= render 'recommend_form', leave: @leave %>
+</div>
+</div>
 
 <% content_for :panel do %>
 <%= link_to 'Show', admin_leaves_path(@leave) %> |

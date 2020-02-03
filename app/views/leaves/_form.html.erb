@@ -1,15 +1,5 @@
 <%= form_with(model: leave, local: true) do |form| %>
-  <% if leave.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(leave.errors.count, "error") %> prohibited this leave from being saved:</h2>
-
-      <ul>
-      <% leave.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "error", object: leave %>
 
   <div class="field">
     <%= form.label :reason %>
@@ -18,17 +8,17 @@
 
   <div class="field">
     <%= form.label :start %>
-    <%= form.datetime_select :start %>
+    <%= form.datetime_local_field :start %>
   </div>
 
   <div class="field">
     <%= form.label :end %>
-    <%= form.datetime_select :end %>
+    <%= form.datetime_local_field :end %>
   </div>
 
   <div class="field">
     <%= form.label :expected, "Expected to be at workplace" %>
-    <%= form.datetime_select :expected %>
+    <%= form.datetime_local_field :expected %>
   </div>
 
   <div class="field">
@@ -37,6 +27,7 @@
   </div>
 
   <div class="actions">
+    <br>
     <%= form.submit %>
   </div>
 <% end %>

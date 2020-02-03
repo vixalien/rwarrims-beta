@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= pluralize(@leaves.count, "#{@n} #{@status.capitalize} leave")  %></h1>
 
+<div class="blocks hours-main-block">
 <% @leaves.each do |leave| %>
-<%= render 'admin_show_leave', leave: leave %>
-<p>
-  <%= link_to 'Show', admin_leave_path(leave) %> 
-  <%= link_to 'Recommend/Approve', recommend_admin_leave_path(leave) %> 
-  <%= link_to 'Edit', edit_admin_leave_path(leave) %> 
-  <%= link_to 'Destroy', admin_leave_path(leave), method: :delete, data: { confirm: 'Are you sure?' } %>
-</p>
-<hr>
+  <div class="block leave-block">
+  <%= render 'admin_show_leave', leave: leave %>
+  <p>
+    <button><%= link_to 'Show', admin_leave_path(leave) %> </button>
+    <button><%= link_to 'Recommend/Approve', recommend_admin_leave_path(leave) %> </button>
+    <button><%= link_to 'Edit', edit_admin_leave_path(leave) %> </button>
+    <button><%= link_to 'Destroy', admin_leave_path(leave), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  </p>
+  </div>
 <% end %>
+</div>
 <br>
 <% content_for :panel do %>
+<ul class="menu">
+  <li><%= link_to 'New leave', new_leave_path %></li>
+</ul>
 <h3>Filter</h3>
 <%= form_with method: "get", local: true do |form| %>
 
@@ -38,9 +42,6 @@
   </div>
 <% end %>
 
-<br>
-
-<%= link_to 'New leave', new_leave_path %>
 
 <% end %>
 <% content_for :panel_type do %>inline<% end %>

@@ -1,15 +1,5 @@
 <%= form_with(model: document, local: true) do |form| %>
-  <% if document.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
-
-      <ul>
-      <% document.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "error", object: document %>
 
   <div class="field">
     <%= form.label :title %>
@@ -22,6 +12,7 @@
   </div>
 
   <div class="actions">
+    <br>
     <%= form.submit %>
   </div>
 <% end %>

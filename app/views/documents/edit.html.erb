@@ -1,10 +1,16 @@
-<h1>Editing Document</h1>
+<h1>Edit Document</h1>
 
-<%= render 'form', document: @document %>
+<div class="blocks hours-main-block">
+  <div class="block leave-block">
+  	<%= render 'form', document: @document %>
+  </div>
+</div>
 
 
 <% content_for :panel do %>
-<%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
+<ul class="menu">
+	<li><%= link_to 'Show', @document %></li>
+	<li><%= link_to 'Back', documents_path %></li>
+</ul>
 <% end %>
 <% content_for :panel_type do %>inline<% end %>

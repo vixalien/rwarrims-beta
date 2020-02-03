@@ -1,27 +1,12 @@
-<p>
-	<strong>Title </strong>
-	<%= document.title %>
-</p>
-<p>
-	<strong>Approved </strong>
-	<%= document.approved %>
-</p>
-<% if document.approved %>
-	<p>
-		<strong>Approved by </strong>
-		<% @e = Employee.find(document.approved_by) %>
-		<%= link_to @e.names, admin_employee_path(@e) %>
-	</p>
-<% end %>
-<p>
-	<strong>By </strong>
-	<%= link_to document.employee.names, admin_employee_path(document.employee) %>
-</p>
-<p>
-	<strong>Preview </strong><br>
-	<% if document.attachment.content_type.start_with? "image" %>
-    <%= image_tag url_for(document.attachment),width: 100, height: 100 %>
-  <% else %>
-  	No Preview
-  <% end -%>
-</p>
+<div class="block document-preview-block" style="background-image: url(<%= "\"#{url_for(document.attachment)}\"" %>);">
+	<div class="meta">
+	  <h4><%= document.title %></h4>
+	  <small>by <strong class="by"><%= link_to document.employee.names, admin_employee_path(document.employee) %></strong></small>
+	  <small>uploaded <strong><%= time_ago_in_words(document.created_at) %> ago</strong></small>
+	  <small class="flex">
+	  	<button><%= link_to 'Show', admin_document_path(document) %> </button>
+	  </small>
+	</div>
+</div>
+<!--<%= link_to 'Edit', edit_document_path(document) %> -->
+  <!--<%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } %>-->

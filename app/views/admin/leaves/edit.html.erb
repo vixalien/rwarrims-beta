@@ -1,7 +1,14 @@
-<h1>Editing leave</h1>
+<h2>Edit leave</h2>
 
+<div class="blocks hours-main-block">
+<div class="block leave-block">
 <%= render 'form', leave: @leave %>
 
-<%= link_to 'Show', admin_leaves_path(@leave) %> |
-<%= link_to 'Recommend/Approve', recommend_admin_leave_path(@leave) %> |
-<%= link_to 'Back', admin_leaves_path %>
+<br>
+<div class="flex">
+	<button><%= link_to 'Show', admin_leaves_path(@leave) %> </button>
+	<button><%= link_to 'Recommend/Approve', recommend_admin_leave_path(@leave) %> </button>
+	<button><%= link_to 'Back', admin_leaves_path %></button>
+</div>
+<div class="blocks">
+<div class="block leave-block">

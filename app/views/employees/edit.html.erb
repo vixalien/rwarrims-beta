@@ -1,8 +1,9 @@
-<h1>Editing My Information</h1>
+<h1>Edit Profile</h1>
 
 <%= render 'form', employee: @employee %>
 
 <% content_for :panel do %>
-<%= link_to 'Me', me_path %> |
-<%= link_to 'Back', employees_path %>
+<ul class="menu">
+	<li><%= link_to 'Back to Profile', me_path %></li>
+</ul>
 <% end %>

@@ -1,36 +1,52 @@
 <% new_day = new_day %>
 <% old_day = old_day %>
-<p>From <strong><%= old_day.strftime("%a %d %b %Y") %></strong> to <strong><%= new_day.strftime("%a %d %b %Y") %></strong></p> 
+
+<div class="blocks hours-main-block">
+  <div class="block">
+    <p>From <strong><%= old_day.strftime("%a %d %b %Y") %></strong> to <strong><%= new_day.strftime("%a %d %b %Y") %></strong></p> 
+  </div>
+</div>
 
 <% allattendances = attendances %>
 <% range = (old_day.beginning_of_day.to_date)..(new_day.beginning_of_day.to_date) %>
 <% today = range.end %>
 <% ttime = 0 %>
-<% loop do %>
-  <% if today == range.begin.yesterday.to_date %>
-    <% break %>
-  <% end -%>
-  <h3><%= today.strftime("%a %d %b %Y") %></h3>
-  <% attendances = allattendances.where(created_at: today.beginning_of_day..today.end_of_day) %>
-  <% for attendance in attendances %>
-    <b>Check In</b> <%= attendance.created_at.strftime("%r on %a %d %b %Y") %><br>
-    <b>Check Out</b> <%= attendance.updated_at.strftime("%r on %a %d %b %Y") %><hr>
-    <% wtime = attendance.updated_at - attendance.created_at %>
-    <% ttime += wtime %>
-    <b>Time worked</b> <%= (wtime/86400).to_i.to_s+"days " if wtime/86400 > 1 %>
-        <%= wtime%=86400;(wtime/3600).to_i.to_s+"m " if (wtime/3600) > 1 %>
-        <%= wtime%=3600;(wtime/60).to_i.to_s+"m " if (wtime/60) > 1 %>
-        <%= wtime%=60;(wtime).to_i.to_s+"s " if (wtime) > 1 %>
-    <hr>
-  <% end %>
-  <% if attendances.empty? %>
-    No attendances today <hr>
-  <% end %>
-  <% today = today.yesterday %>
-<% end %>
-<h2>Total Time worked</h2>
-<p><%= (ttime/86400).to_i.to_s+"days " if ttime/86400 > 1 %>
-    <%= ttime%=86400;(ttime/3600).to_i.to_s+"m " if (ttime/3600) > 1 %>
-    <%= ttime%=3600;(ttime/60).to_i.to_s+"m " if (ttime/60) > 1 %>
-    <%= ttime%=60;(ttime).to_i.to_s+"s " if (ttime) > 1 %></p>
-<hr>
+<div class="blocks hours-main-block">
+  <div class="block hours-log-table">
+    <table>
+      <thead>
+        <th>Date</th>
+        <th>Hours</th>
+      </thead>
+      <tbody>
+      <% loop do %>
+        <tr>
+        <% if today == range.begin.yesterday.to_date %>
+          <% break %>
+        <% end -%>
+        <th><%= today.strftime("%a %d %b %Y") %></th>
+        <% attendances = allattendances.where(created_at: today.beginning_of_day..today.end_of_day) %>
+        <td>
+        <% for attendance in attendances %>
+          <hr>
+          <b>Check In</b> <%= attendance.created_at.strftime("%r on %a %d %b %Y") %><br>
+          <b>Check Out</b> <%= attendance.updated_at.strftime("%r on %a %d %b %Y") %><hr>
+          <% wtime = attendance.updated_at - attendance.created_at %>
+          <% ttime += wtime %>
+          <b>Time worked</b> <%= time_ago wtime %>
+        <% end %>
+        <% if attendances.empty? %>
+          No attendances today 
+        <% end %>
+        </td>
+        <% today = today.yesterday %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="block">
+    <h2>Total time worked</h2>
+    <p><%= time_ago ttime %></p>
+  </div>
+</div>

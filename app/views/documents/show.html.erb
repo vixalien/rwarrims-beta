@@ -1,8 +1,20 @@
 <h1>Show Document</h1>
 
-<p id="notice"><%= notice %></p>
-
-<%= render 'show_form', document: @document %>
+<div class="block document-preview-block document-show-block">
+	<div class="meta">
+		<% if @document.attachment.content_type.start_with? "image" %>
+	    <%= image_tag url_for(@document.attachment) %>
+	  <% else %>
+	  	No Preview
+	  <% end -%>
+	  <h4><%= @document.title %></h4>
+	  <!-- <small>by <strong class="by">One User</strong></small> -->
+	  <small>uploaded <strong><%= time_ago_in_words(@document.created_at) %> ago</strong></small>
+	  <small class="flex">
+	  	<button><%= link_to 'Download', url_for(@document.attachment) %></button>
+	  </small>
+	</div>
+</div>
 
 <% content_for :panel do %>
 <%= link_to 'Back', documents_path %>

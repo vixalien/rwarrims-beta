@@ -36,10 +36,10 @@ class EmployeesController < ApplicationController
       @employee.position = 7
       @employee.head = false
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Your account was successfully created. Waiting for admins to confirm' }
+        format.html { redirect_to @employee, notice: 'Your account was successfully created. Waiting for administators to confirm' }
         format.json { render :show, status: :created, location: @employee }
       else
-        format.html { render :new }
+        format.html { render :new, layout: "layouts/outside" }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end

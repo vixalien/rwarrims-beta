@@ -1,35 +1,29 @@
-<h1>Logged In as</h1>
-<p id="notice"><%= notice %></p>
+<h2>My Profile</h2>
 
-<p>
-  <strong>Names:</strong>
-  <%= @employee.names %>
-</p>
+<div class="blocks hours-main-block profile-block">
+  <div class="block">
+    <strong>Names:</strong>
+    <%= @employee.names %><br>
 
-<p>
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
+    <strong>Email:</strong>
+    <%= @employee.email %><br>
 
-<p>
-  <strong>Idcard:</strong>
-  <%= @employee.idcard %>
-</p>
+    <strong>Idcard:</strong>
+    <%= @employee.idcard %><br>
 
-<% if @employee.admin %>
-<p>
-  <strong>Admin:</strong>
-  <%= @employee.admin %>
-</p>
-<% end %>
+    <% if @employee.admin %>
+      <strong>Admin:</strong>
+      <%= @employee.admin %><br>
+    <% end %>
 
-<p>
-  <strong>Position:</strong>
-  <%= getPositionId @employee.position %>
-</p>
+    <strong>Position:</strong>
+    <%= getPositionId @employee.position %><br>
 
-<% content_for :panel do %>
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Sessions', sessions_path %> |
-<%= link_to 'Log out', @current_session, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+    <div class="flex">
+      <br>
+      <button><%= link_to 'Edit', edit_employee_path(@employee) %></button>
+      <button><%= link_to 'Sessions', sessions_path %></button>
+      <button><%= link_to 'Log out', @current_session, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </div>
+</div>
+</div>

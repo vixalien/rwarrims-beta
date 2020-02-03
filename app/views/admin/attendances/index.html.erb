@@ -1,11 +1,14 @@
-<p id="notice"><%= notice %></p>
 
 <h1><%= "#{@status.capitalize} attendances" %></h1>
 <div class="grids" style="display: flex">
 	<% for employee in @employees %>
 		<% @attendances = employee.attendances %>
 		<div class="grid">
-			<p>For <strong><%= link_to employee.names, admin_employee_path(employee) %></strong></p>
+			<div class="blocks hours-main-block">
+			  <div class="block">
+					<p>For <strong><%= link_to employee.names, admin_employee_path(employee) %></strong></p>
+				</div>
+			</div>
 			<%= render 'attendances/show', attendances: @attendances, new_day: @new_day, old_day: @old_day %>
 		</div>
 	<% end %>

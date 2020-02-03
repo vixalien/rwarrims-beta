@@ -1,25 +1,27 @@
 <h1>Home</h1>
-<p>
-	<h3><%= link_to "Attendances", attendances_path %></h3>
-	<% state = current_employee.attendances.last.state %>
-	<% not_state = state.downcase == "in" ? "out" : "in" %>
-	<span>
-		Currently <strong><%= state %> </strong>
-	</span>
-</p>
-<p>
-	<h3><%= link_to "Leaves", leaves_path %></h3>
-	<span><%= pluralize current_employee.leaves.all.count, "leave" %></span>
-</p>
-<p>
-	<h3><%= link_to "Documents", documents_path %></h3>
-	<span><%= pluralize Document.where(approved: true).count, "document" %> available</span>
-</p>
-<p>
-	<h3><%= link_to "Me", me_path %></h3>
-	<span>Logged In as <strong><%= current_employee.names %></strong></span>
-</p>
-<p>
-	<h3><%= link_to "Help", help_path %></h3>
-	<span>View how to use RwarriMS</span>
-</p>
+<div class="blocks">
+	<a href="<%= attendances_path %>" class="block">
+		<h3>Attendance</h3>
+		<% state = current_employee.attendances.last.state %>
+		<% not_state = state.downcase == "in" ? "out" : "in" %>
+		<span>
+			Currently <strong><%= state %> </strong>
+		</span>
+	</a>
+	<a href="<%= leaves_path %>" class="block">
+		<h3>Leaves</h3>
+		<span><%= pluralize current_employee.leaves.all.count, "leave" %></span>
+	</a>
+	<a href="<%= documents_path %>" class="block">
+		<h3>Documents</h3>
+		<span><%= pluralize Document.where(approved: true).count, "document" %> available</span>
+	</a>
+	<a href="<%= me_path %>" class="block">
+		<h3>Me</h3>
+		<span>Logged In as <strong><%= current_employee.names %></strong></span>
+	</a>
+	<a href="<%= help_path %>" class="block">
+		<h3>Help</h3>
+		<span>View how to use RwarriMS</span>
+	</a>
+</div>

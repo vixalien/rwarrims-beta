@@ -1,20 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= pluralize(@documents.count, " #{@only} document") %></h1>
+<h2><%= pluralize(@documents.count, " #{@only} document") %></h2>
 
     <% @documents.each do |document| %>
       <%= render 'show_form', document: document %>
-			<p>
-				<%= link_to 'Show', admin_document_path(document) %> 
-			  <%= link_to 'Edit', edit_admin_document_path(document) %> 
-			  <%= link_to 'Approve', approve_admin_document_path(document) %> 
-			  <%= link_to 'Download', url_for(document.attachment) %> 
-			  <%= link_to 'Delete', admin_document_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
-			</p>
-      <hr>
     <% end %>
-
-<br>
 
 <% content_for :panel do %>
 <h3>Filter</h3>

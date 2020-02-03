@@ -6,37 +6,53 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body style="display: flex">
-    <div class="nav" style="padding-right: 50px">
-      <h1>RwarriMS</h1>
-      <h3>Employee <% if current_employee.admin == true %>
-                  <%= link_to "Switch", admin_path %><br>
-                <% end %></h3>
-      <%= link_to "Home", home_path %><br>
-      <%= link_to "Attendance", new_attendance_path %><br>
-      <%= link_to "Documents", documents_path %><br>
-      <%= link_to "Leaves", leaves_path %><br>
-      <%= link_to "Me", me_path %><br>
-      <%= link_to "Help", help_path %>
-    </div>
-    <div class="body" style="flex: 1">
-      <%= yield %>
-    </div>
-    <div class="panel" style="max-width: 30%; padding-left: 50px; padding-top: 25px">
-      <% if (yield :panel).present? %>
-        <% if (yield :panel_type) == "inline" %>
-          <%= yield :panel %>
-        <% else %>
-        <% begin %>
-          <%= render yield :panel %>
-        <% rescue Exception => e %>
-          <%= yield :panel %>
-        <% end %>
-        <% end %>
+  <body class="flex horizontal">
+    <nav>
+      <div>
+        <h2>RwarriMS<span class="menu-tog" id="menu-tog">menu</span></h2>
+        <ul class="menu" id="main-menu">
+          <h3>
+            <% if current_employee.admin %>
+              <%= link_to "Employee", admin_path, id: "switch" %>
+            <% else %>
+              Employee
+            <% end %>
+          </h3>
+          <li><input type="text" name="hello" placeholder="Search"></li>
+          <li><%= link_to "Home", home_path %></li>
+          <li><%= link_to "Attendance", new_attendance_path %></li>
+          <li><%= link_to "Documents", documents_path %></li>
+          <li><%= link_to "Leaves", leaves_path %></li>
+          <li><%= link_to "Me", me_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <% if flash[:notice].present? %>
+        <div class="notif notif-home">
+          <span><%= flash[:notice] %></span>
+        </div>
       <% end %>
-    </div>
+      <%= yield %>
+    </main>
+    <% if (yield :panel).present? %>
+      <nav class="options">
+        <div class="options">
+          <% if (yield :panel_type) == "inline" %>
+            <%= yield :panel %>
+          <% else %>
+            <% begin %>
+              <%= render yield :panel %>
+            <% rescue Exception => e %>
+              <%= yield :panel %>
+            <% end %>
+          <% end %>
+        </div>
+      </nav>
+    <% end %>
   </body>
 </html>

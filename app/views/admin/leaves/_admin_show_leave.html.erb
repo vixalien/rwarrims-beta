@@ -8,15 +8,15 @@
 </p>
 <p>
   <strong>Start </strong>
-  <%= leave.start %>
+  <%= leave.start.strftime("%r on %a %d %b %Y") %>
 </p>
 <p>
   <strong>End </strong>
-  <%= leave.end %>
+  <%= leave.end.strftime("%r on %a %d %b %Y") %>
 </p>
 <p>
   <strong>Expected to be at workplace </strong>
-  <%= leave.expected %>
+  <%= leave.expected.strftime("%r on %a %d %b %Y") %>
 </p>
 <p>
   <strong>Recommended </strong>

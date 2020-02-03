@@ -1,22 +1,13 @@
-<p>
-	<strong>Title </strong>
-	<%= document.title %>
-</p>
-<p>
-	<strong>Approved </strong>
-	<%= document.approved %>
-</p>
-<p>
-	<strong>Preview </strong><br>
-	<% if document.attachment.content_type.start_with? "image" %>
-    <%= image_tag url_for(document.attachment),width: 100, height: 100 %>
-  <% else %>
-  	No Preview
-  <% end -%>
-</p>
-<p>
-	<%= link_to 'Show', document %> 
-  <!--<%= link_to 'Edit', edit_document_path(document) %> -->
-  <%= link_to 'Download', url_for(document.attachment) %> 
+<div class="block document-preview-block" style="background-image: url(<%= "\"#{url_for(document.attachment)}\"" %>);">
+	<div class="meta">
+	  <h4><%= document.title %></h4>
+	  <!-- <small>by <strong class="by">One User</strong></small> -->
+	  <small>uploaded <strong><%= time_ago_in_words(document.created_at) %> ago</strong></small>
+	  <small class="flex">
+	  	<button><%= link_to 'Show', document %></button>
+	  	<button><%= link_to 'Download', url_for(document.attachment), class: "delete-button" %></button>
+	  </small>
+	</div>
+</div>
+<!--<%= link_to 'Edit', edit_document_path(document) %> -->
   <!--<%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } %>-->
-</p>

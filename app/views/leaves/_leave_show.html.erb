@@ -1,0 +1,24 @@
+<strong>Reason </strong>
+<%= leave.reason %><br>
+<strong>Category </strong>
+<%= getCategoryId leave.category %><br>
+<strong>By </strong>
+<%= leave.employee.names %><br>
+<strong>Start </strong>
+<%= leave.start.strftime("%r on %a %d %b %Y") %> 
+(<%= time_ago_in_words(leave.start) %> 
+<%= leave.start > DateTime.now ? "from now" : "ago" %>)<br>
+<strong>End </strong>
+<%= leave.end.strftime("%r on %a %d %b %Y") %> 
+(<%= time_ago_in_words(leave.end) %>
+<%= leave.end > DateTime.now ? "from now" : "ago" %>)<br>
+<strong>Expected to be at workplace </strong>
+<%= leave.expected.strftime("%r on %a %d %b %Y") %> 
+(<%= time_ago_in_words(leave.expected) %> 
+<%= leave.expected > DateTime.now ? "from now" : "ago" %>)<br>
+<strong>Recommended </strong>
+<%= leave.recommended %><br>
+<% if leave.recommended %>
+<strong>Approved </strong>
+<%= leave.approved %><br>
+<% end %>

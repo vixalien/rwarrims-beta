@@ -1,7 +1,23 @@
 <h1>Employee</h1>
-<p id="notice"><%= notice %></p>
 
-<%= render 'admin_show_form', employee: @employee %>
-<%= link_to 'Edit', edit_admin_employee_path(@employee) %> |
-<%= link_to 'Destroy', admin_employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', admin_employee_path(@employee) %>
+<div class="blocks hours-main-block profile-block">
+  <div class="block">
+		<%= render 'admin_show_form', employee: @employee %>
+
+		<div class="flex">
+			<button><%= link_to "Leaves", admin_leaves_path("employee[]": @employee.id) %></button>
+			<button><%= link_to "Attendances", admin_attendances_path("employee[]": @employee.id) %></button>
+			<button><%= link_to "Documents", admin_documents_path("employee[]": @employee.id) %></button>
+		</div><br>
+		<div class="flex">
+			<button><%= link_to 'Edit', edit_admin_employee_path(@employee) %> </button>
+			<button class="outline delete-button"><%= link_to 'Delete', admin_employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+		</div>
+	</div>
+</div>
+
+<% content_for :panel do %>
+<ul class="menu">
+  <li><%= link_to 'Back', admin_employees_path %></li>
+</ul>
+<% end %>

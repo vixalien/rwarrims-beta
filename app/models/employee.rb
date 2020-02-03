@@ -13,18 +13,19 @@ end
 class IdcardValidator < ActiveModel::Validator
   def validate(record)
     if record.idcard.split.join.length != 16
-    	record.errors.add :base, "The Idcard's length is incorrect."
-    end
-    # Id cards in RWANDA must be like "1 YEAR 7 2023 2 23 22"
-    # You can only apply for Id card when you're 16 or above so YEAR must be less than DateTime.now.year - 15
-    # the number that follows YEAR : 7 means feminine 8 means masculine
-    if /\d*(\d{4})[7|8]\d*/.match(record.idcard.split.join)
-    	unless (/\d(\d{4})[7|8]\d*/.match(record.idcard.split.join)[1].present?) && (/\d(\d{4})[7|8]\d*/.match(record.idcard.split.join)[1].to_i <= DateTime.now.year.to_i - 15)
-	    	record.errors.add :base, "The Idcard's year is incorrect"
-	    end
+    	record.errors.add :base, "The Idcard's length is incorrect. ( must be 16 digits )"
     else
-    	record.errors.add :base, "The Idcard's format is incorrect."
-    end
+	    # Id cards in RWANDA must be like "1 YEAR 7 2023 2 23 22"
+	    # You can only apply for Id card when you're 16 or above so YEAR must be less than DateTime.now.year - 15
+	    # the number that follows YEAR : 7 means feminine 8 means masculine
+	    if /\d*(\d{4})[7|8]\d*/.match(record.idcard.split.join)
+	    	unless (/\d(\d{4})[7|8]\d*/.match(record.idcard.split.join)[1].present?) && (/\d(\d{4})[7|8]\d*/.match(record.idcard.split.join)[1].to_i <= DateTime.now.year.to_i - 15)
+		    	record.errors.add :base, "The Idcard's year is incorrect (Too young)."
+		    end
+	    else
+	    	record.errors.add :base, "The Idcard's format is incorrect, must be like 1 1900 7 1234561765"
+	    end
+	  end
   end
 end
 

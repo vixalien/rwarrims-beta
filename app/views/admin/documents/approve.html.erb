@@ -1,7 +1,5 @@
 <h1>Approve Document</h1>
 
-<p id="notice"><%= notice %></p>
-
 <%= render 'show_form', document: @document %>
 <%= form_with model: @document, local: true, url: "/admin/documents/#{@document.id}" do |form| %>
   <% if @document.errors.any? %>
@@ -16,17 +14,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :approved %>
-    <%= form.check_box :approved %>
-  </div>
+  <div class="blocks hours-main-block">
+    <div class="block">
+      <div class="field">
+        <%= form.label :approved %>
+        <%= form.check_box :approved %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="actions">
+        <br>
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
 
 <% content_for :panel do %>
-<%= link_to 'Back', admin_documents_path %>
+<ul class="menu">
+  <li><%= link_to 'Back', admin_documents_path %></li>
+</ul>
 <% end %>
 <% content_for :panel_type do %>inline<% end %>

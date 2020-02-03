@@ -1,8 +1,11 @@
-<h1>Welcome Back, Employee</h1>
+<h2>Log In</h2>
 
-<p id="notice"><%= notice %></p>
-
+<div class="blocks hours-main-block">
+<% if logged_in? == true %>
+  <div class="block">
+    An employee, <strong><%= current_employee.names %></strong> is already logged in.<br>
+    <%= link_to "Jump to Home", home_path %>
+  </div>
+<% end %>
 <%= render 'employees/login_form', current_employee: @emp %>
-
-<% content_for :panel do %>
-<%= link_to 'Back', employees_path %><% end %>
+</div>

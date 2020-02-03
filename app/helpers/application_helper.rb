@@ -7,6 +7,47 @@ module ApplicationHelper
     secure
   end
 
+  def time_ago ttime
+    a = ""
+    def append_about a
+      a = ("about "<<a) unless a.start_with? "about"
+    end
+    if ttime/31104000 > 1
+      append_about a
+      a << (ttime/31104000).to_i.to_s
+      a << " years "
+    end
+    if ttime/2592000 > 1
+      ttime%=31104000
+      append_about a
+      a << (ttime/2592000).to_i.to_s
+      a << " months "
+    end
+    if ttime/86400 > 1
+      ttime%=2592000
+      a << (ttime/86400).to_i.to_s
+      a << " days "
+    end
+    if (ttime/3600) > 1
+      ttime%=86400
+      a << (ttime/3600).to_i.to_s
+      a << " hours "
+    end
+    if (ttime/60) > 1
+      ttime%=3600
+      a << (ttime/60).to_i.to_s
+      a << " minutes "
+    end
+    if (ttime) > 3
+      ttime%=60
+      a << (ttime).to_i.to_s
+      a << " seconds"
+    else
+      a << "about 0 seconds"
+    end
+    a
+  end
+
   def log_in employee, useragent, ip
     s = employee.sessions.new(state: "in", cookie: generateuniquesecure)
     ua = s.build_useragent(os: useragent.split("(")[1].split(")")[0], browser: useragent.split("(").last.split(")").last.split(" ").first.gsub("/", " version "), full: useragent )

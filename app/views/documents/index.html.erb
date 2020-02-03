@@ -1,26 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= pluralize(@documents.count, " #{@only} document") %></h1>
-
-    <% @documents.each do |document| %>
-      <%= render 'show_form', document: document %>
-      <hr>
-    <% end %>
+<div class="blocks document-blocks">
+  <% @documents.each do |document| %>
+  	<%= render 'show_form', document: document %>
+  <% end %>
+</div>
 
 <br>
 
 <% content_for :panel do %>
-<%= link_to 'New Document', new_document_path %>
-<!-- for me only
-<h3>Filter</h3>
-<%= form_with method: :get, local: :true do |form| %>
-	<%= form.radio_button :only, :all %> All<br>
-	<%= form.radio_button :only, :pending %> Pending<br>
-	<%= form.radio_button :only, :approved %> Approved<br>
-	<p>
-		<%= form.submit "Update", :disable_with => 'Updating...' %>
-	</p>
-<% end %>
--->
+<h3>Actions</h3>
+<ul class="menu">
+	<li><%= link_to 'New Document', new_document_path %></li>
+</ul>
 <% end %>
 <% content_for :panel_type do %>inline<% end %>
