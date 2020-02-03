@@ -2,11 +2,15 @@
 <div class="blocks">
 	<a href="<%= attendances_path %>" class="block">
 		<h3>Attendance</h3>
-		<% state = current_employee.attendances.last.state %>
-		<% not_state = state.downcase == "in" ? "out" : "in" %>
-		<span>
-			Currently <strong><%= state %> </strong>
-		</span>
+		<% if current_employee.attendances.any? %>
+			<% state = current_employee.attendances.last.state %>
+			<% not_state = state.downcase == "in" ? "out" : "in" %>
+			<span>
+				Currently <strong><%= state %> </strong>
+			</span>
+		<% else %>
+			You never checked attendance
+		<% end %>
 	</a>
 	<a href="<%= leaves_path %>" class="block">
 		<h3>Leaves</h3>
