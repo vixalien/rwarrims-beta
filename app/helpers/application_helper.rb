@@ -62,6 +62,7 @@ module ApplicationHelper
     cookies.encrypted[:ss_id] = {value: s.cookie,expires: Time.now + (60*60*24*10)}
     s.build_location(get_loc ip)
     s.loc_updated_at = DateTime.now
+    s.save
   end
 
   def verbose_logged_in?
