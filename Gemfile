@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# For generating pdfs
+gem 'prawn'
+gem 'prawn-table'
 # For finding timezones quickly
 gem 'timezone_finder'
 # Use the gem http to upload files and such with activestorage

@@ -46,6 +46,7 @@ class AttendancesController < ApplicationController
     else
       @attendance = current_employee.attendances.new(state: "in")
       @attendance.location = Location.new(helpers.get_loc request.ip)
+      @attendance.useragent = Useragent.new(helpers.get_ua request.headers["User-Agent"])
     end
 
     respond_to do |format|

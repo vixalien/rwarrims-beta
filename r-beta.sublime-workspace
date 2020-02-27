@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"i",
+				"italic\tfont-style"
+			],
+			[
+				"prevLine",
+				"prevLineIsHr\tlocal var"
+			],
+			[
+				"att",
+				"attendance"
+			],
+			[
+				"atte",
+				"attendance"
+			],
+			[
+				"get",
+				"get_loc"
+			],
+			[
+				"loc",
+				"loc_updated_at"
+			],
+			[
+				"upda",
+				"updated_at"
+			],
+			[
+				"curr",
+				"current_session"
+			],
+			[
+				"sta",
+				"state_prov"
+			],
+			[
+				"lo",
+				"longitude"
+			],
+			[
+				"lat",
+				"latitude"
+			],
+			[
 				"im",
 				"important"
 			],
@@ -21,10 +65,6 @@
 			],
 			[
 				"if",
-				"if\tif … end"
-			],
-			[
-				"i",
 				"if\tif … end"
 			],
 			[
@@ -56,10 +96,6 @@
 				"params"
 			],
 			[
-				"atte",
-				"attendances"
-			],
-			[
 				"all",
 				"allattendances"
 			],
@@ -70,10 +106,6 @@
 			[
 				"Date",
 				"DateTime"
-			],
-			[
-				"att",
-				"attendances"
 			],
 			[
 				"beg",
@@ -106,10 +138,6 @@
 			[
 				"coo",
 				"cookies"
-			],
-			[
-				"lo",
-				"logged_in"
 			],
 			[
 				"cur",
@@ -166,10 +194,6 @@
 			[
 				"fil",
 				"filter_params"
-			],
-			[
-				"get",
-				"getAllPositions"
 			],
 			[
 				"u",
@@ -264,10 +288,6 @@
 				"pushState\tmethod"
 			],
 			[
-				"loc",
-				"location\tproperty"
-			],
-			[
 				"innerHT",
 				"innerHTML\twarning"
 			],
@@ -334,10 +354,6 @@
 			[
 				"sp",
 				"special"
-			],
-			[
-				"curr",
-				"current_word\twarning"
 			],
 			[
 				"le",
@@ -498,77 +514,16 @@
 			[
 				"fu",
 				"function\tkeyword"
-			],
-			[
-				"close",
-				"closeOpenDialogs\tfunction"
-			],
-			[
-				"side",
-				"sidebar-toggler"
-			],
-			[
-				"text",
-				"text-decoration\tproperty"
-			],
-			[
-				"po",
-				"position\tproperty"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/views/application/_error.html.erb",
+			"file": "/C/Users/Alien/Downloads/Compressed/codemirror/codemirror-5.51.0/mode/rst/rst.js",
 			"settings":
 			{
-				"buffer_size": 287,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/models/employee.rb",
-			"settings":
-			{
-				"buffer_size": 2431,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/employees_controller.rb",
-			"settings":
-			{
-				"buffer_size": 2336,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/attendances/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 1062,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/admin/leaves/_admin_show_leave.html.erb",
-			"settings":
-			{
-				"buffer_size": 960,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Alien/$1",
-			"settings":
-			{
-				"buffer_size": 142,
+				"buffer_size": 17584,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -758,19 +713,54 @@
 		"/C/Sites/rwarrims-beta",
 		"/C/Sites/rwarrims-beta/app",
 		"/C/Sites/rwarrims-beta/app/assets",
-		"/C/Sites/rwarrims-beta/app/assets/stylesheets",
 		"/C/Sites/rwarrims-beta/app/controllers",
 		"/C/Sites/rwarrims-beta/app/views",
-		"/C/Sites/rwarrims-beta/app/views/admin",
-		"/C/Sites/rwarrims-beta/app/views/admin/leaves",
+		"/C/Sites/rwarrims-beta/app/views/index",
+		"/C/Sites/rwarrims-beta/app/views/layouts",
 		"/C/Sites/rwarrims-beta/config",
-		"/C/Sites/rwarrims-beta/config/initializers"
+		"/C/Sites/rwarrims-beta/config/environments"
 	],
 	"file_history":
 	[
+		"/C/Users/Alien/Downloads/Compressed/codemirror/codemirror-5.51.0/theme/monokai.css",
+		"/C/Users/Alien/Downloads/Compressed/codemirror/codemirror-5.51.0/mode/yaml/yaml.js",
+		"/C/Users/Alien/Desktop/Markdown/Markdown.sublime-syntax",
+		"/C/Users/Alien/Downloads/Compressed/codemirror/codemirror-5.51.0/mode/markdown/markdown.js",
+		"/C/Users/Alien/Downloads/Compressed/codemirror/codemirror-5.51.0/mode/markdown/markdown-later.js",
+		"/C/Users/Alien/Desktop/motes.xml",
+		"/C/Sites/rwarrims-beta/app/helpers/application_helper.rb",
 		"/C/Sites/rwarrims-beta/app/views/layouts/application.html.erb",
 		"/C/Sites/rwarrims-beta/app/controllers/sessions_controller.rb",
+		"/C/Sites/rwarrims-beta/app/controllers/application_controller.rb",
+		"/C/Sites/rwarrims-beta/.git/COMMIT_EDITMSG",
+		"/C/Sites/rwarrims-beta/config/initializers/assets.rb",
+		"/C/Sites/rwarrims-beta/app/views/layouts/admin.html.erb",
+		"/C/Sites/rwarrims-beta/app/views/layouts/outside.html.erb",
+		"/C/Users/Alien/Downloads/Compressed/a.sh",
+		"/C/Sites/rwarrims-beta/app/views/index/index.html.erb",
+		"/C/Users/Alien/Downloads/a.sh",
+		"/C/Sites/rwarrims-beta/app/controllers/admin_controller.rb",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/application.js.erb",
+		"/C/Sites/rwarrims-beta/app/views/attendances/_show.html.erb",
+		"/C/Sites/rwarrims-beta/config/environments/production.rb",
 		"/C/Sites/rwarrims-beta/app/assets/stylesheets/bundle.css.erb",
+		"/C/Sites/rwarrims-beta/config/environments/development.rb",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/index.js",
+		"/C/Sites/rwarrims-beta/app/controllers/attendances_controller.rb",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/attendances.js",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/documents.js.erb",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/leaves.js.erb",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/attendances.js.erb",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/employees.js.erb",
+		"/C/Sites/rwarrims-beta/app/assets/javascripts/sessions.js.erb",
+		"/C/Sites/rwarrims-beta/app/views/application/_error.html.erb",
+		"/C/Sites/rwarrims-beta/app/models/employee.rb",
+		"/C/Sites/rwarrims-beta/app/views/attendances/show.json.jbuilder",
+		"/C/Sites/rwarrims-beta/app/views/attendances/_attendance.json.jbuilder",
+		"/C/Sites/rwarrims-beta/app/views/attendances/new.html.erb",
+		"/C/Sites/rwarrims-beta/app/controllers/employees_controller.rb",
+		"/C/Users/Alien/$1",
+		"/C/Sites/rwarrims-beta/app/views/admin/leaves/_admin_show_leave.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/attendances/index.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/documents/approve.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/index.html.erb",
@@ -783,7 +773,6 @@
 		"/C/Sites/rwarrims-beta/app/views/leaves/index.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/employees/_form.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/attendances/_panel.html.erb",
-		"/C/Sites/rwarrims-beta/app/controllers/employees_controller.rb",
 		"/C/Sites/rwarrims-beta/app/views/admin/documents/_form.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/_form.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/leaves/_form.html.erb",
@@ -797,14 +786,10 @@
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/edit.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/_admin_show_form.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/documents/edit.html.erb",
-		"/C/Sites/rwarrims-beta/app/views/attendances/_show.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/documents/index.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/documents/_show_form.html.erb",
-		"/C/Sites/rwarrims-beta/app/helpers/application_helper.rb",
 		"/C/Sites/rwarrims-beta/app/views/admin/documents/show.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/admin/documents/_show_form.html.erb",
-		"/C/Sites/rwarrims-beta/app/views/layouts/admin.html.erb",
-		"/C/Sites/rwarrims-beta/app/views/index/index.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/index/admin.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/leaves/edit.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/employees/edit.html.erb",
@@ -818,44 +803,33 @@
 		"/C/Users/Alien/Downloads/guides/guides/source/action_view_overview.md",
 		"/C/Sites/rwarrims-beta/app/views/leaves/_leave_show.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/leaves/show.html.erb",
-		"/C/Sites/rwarrims-beta/app/assets/javascripts/application.js.erb",
 		"/C/Sites/rwarrims-beta/app/assets/javascripts/timescope.js",
-		"/C/Sites/rwarrims-beta/config/initializers/assets.rb",
-		"/C/Sites/rwarrims-beta/app/views/attendances/new.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/employees/new.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/employees/login.html.erb",
-		"/C/Sites/rwarrims-beta/app/views/layouts/outside.html.erb",
 		"/C/Sites/rwarrims-beta/app/views/employees/_login_form.html.erb",
-		"/C/Users/Alien/$1",
 		"/C/Users/Alien/Downloads/guides/guides/source/getting_started.md",
 		"/C/Users/Alien/Downloads/guides/guides/source/layouts_and_rendering.md",
 		"/C/Sites/rwarrims-beta/app/assets/javascripts/bundle.js",
 		"/C/Users/Alien/Downloads/guides/guides/source/working_with_javascript_in_rails.md",
 		"/C/Ruby26/lib/ruby/gems/2.6.0/gems/turbolinks-source-5.2.0/README.md",
 		"/C/Ruby26/lib/ruby/gems/2.6.0/gems/turbolinks-5.2.0/README.md",
-		"/C/Sites/rwarrims-beta/app/controllers/application_controller.rb",
 		"/C/Users/Alien/Downloads/guides/guides/source/asset_pipeline.md",
-		"/C/Sites/rwarrims-beta/config/environments/development.rb",
 		"/C/Sites/rwarrims-beta/app/assets/stylesheets/application.css.erb",
 		"/C/Users/Alien/Downloads/guides/guides/source/routing.md",
 		"/C/Sites/rwarriui/css/raw/variables.css",
 		"/C/Sites/rwarrims-beta/app/assets/config/manifest.js",
-		"/C/Sites/rwarrims-beta/.git/COMMIT_EDITMSG",
 		"/C/Sites/rwarrims-beta/app/controllers/documents_controller.rb",
 		"/C/Sites/rwarrims-beta/app/views/index/help.html.erb",
 		"/C/Sites/rwarrims-beta/app/controllers/index_controller.rb",
 		"/C/Sites/rwarrims-beta/app/controllers/admin/attendances_controller.rb",
-		"/C/Sites/rwarrims-beta/app/views/admin/leaves/_admin_show_leave.html.erb",
 		"/C/Users/Alien/Downloads/guides/guides/source/i18n.md",
 		"/C/Sites/rwarrims-beta/app/controllers/admin/leaves_controller.rb",
 		"/C/Sites/rwarrims-beta/app/controllers/admin/documents_controller.rb",
-		"/C/Sites/rwarrims-beta/app/controllers/attendances_controller.rb",
 		"/C/Sites/rwarrims-beta/config/routes.rb",
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/recruit.html.erb",
 		"/C/Sites/rwarriapi/.git/COMMIT_EDITMSG",
 		"/C/Sites/rwarrims-beta/app/views/documents/approve.html.erb",
 		"/C/Users/Alien/Downloads/guides/guides/source/action_controller_overview.md",
-		"/C/Sites/rwarrims-beta/app/controllers/admin_controller.rb",
 		"/C/Users/Alien/Downloads/guides/guides/source/autoloading_and_reloading_constants.md",
 		"/C/Sites/rwarrims-beta/app/controllers/leaves_controller.rb",
 		"/C/Sites/rwarrims-beta/app/assets/stylesheets/scaffolds.scss",
@@ -868,7 +842,6 @@
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/_employee.json.jbuilder",
 		"/C/Users/Alien/Downloads/guides/guides/source/api_app.md",
 		"/C/Ruby26/lib/ruby/gems/2.6.0/gems/jbuilder-2.9.1/README.md",
-		"/C/Sites/rwarrims-beta/app/models/employee.rb",
 		"/C/Users/Alien/Downloads/guides/guides/source/active_record_validations.md",
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/_recruit_form.html.erb",
 		"/C/Sites/rwarrims-beta/app/helpers/employees_helper.rb",
@@ -876,30 +849,11 @@
 		"/C/Sites/rwarrims-beta/app/views/admin/employees/index.json.jbuilder",
 		"/C/Users/Alien/Downloads/guides/guides/source/action_cable_overview.md",
 		"/C/Sites/rwarrims-beta/app/views/employees/index.html.erb",
-		"/C/Users/Alien/Downloads/guides/guides/source/generators.md",
-		"/C/Sites/rwarrims-beta/app/views/attendances/_attendance.json.jbuilder",
-		"/C/Sites/rwarrims-beta/config/puma.rb",
-		"/C/Sites/rwarrims/app/views/attmg/weekly.html.erb",
-		"/C/Users/Alien/AppData/Roaming/Sublime Text 3/Packages/User/Tag2.0.sublime-snippet",
-		"/C/Sites/rwarrims-beta/Gemfile",
-		"/C/Ruby26/lib/ruby/gems/2.6.0/gems/tzinfo-1.2.5/README.md",
-		"/C/Users/Alien/Downloads/guides/guides/source/active_record_querying.md",
-		"/C/Program Files/Mozilla Firefox/eset_security_config_overlay.js",
-		"/C/Sites/rwarrims-beta/app/helpers/leaves_helper.rb",
-		"/C/Sites/rwarrims-beta/leaves",
-		"/C/Sites/rwarrims-beta/db/migrate/20200111132059_add_expected_to_leaves.rb",
-		"/C/Sites/rwarrims-beta/app/views/leaves/_leave.json.jbuilder",
-		"/C/Users/Alien/Downloads/guides/guides/source/active_model_basics.md",
-		"/C/Users/Alien/AppData/Roaming/Sublime Text 3/Packages/User/Tagx.sublime-snippet",
-		"/C/Sites/rwarrims/app/controllers/session_controller.rb",
-		"/C/Sites/rwarrims/app/helpers/application_helper.rb",
-		"/C/Users/Alien/Desktop/Rails/HTML (Rails).sublime-syntax",
-		"/C/Users/Alien/Desktop/HTML/HTML.sublime-syntax",
-		"/C/Program Files/Sublime Text 3/changelog.txt"
+		"/C/Users/Alien/Downloads/guides/guides/source/generators.md"
 	],
 	"find":
 	{
-		"height": 104.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -913,6 +867,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"strikethrou",
+			"startS",
+			"setextHeaderRE",
+			"(\\n(.*|^(\\n))*)",
+			"(\\n(.*|^(\\n)))*",
+			"paragraph",
+			"\\n\\n(.*|^(\\n\\n))",
+			"\\n(.*|^\\n\\n)",
+			"\\n(?!(\\n\\n))(.*)",
+			"\\n(?:([^\\n])*)",
+			"state.header",
+			"isHr",
+			"hrRE",
+			"_",
+			"atxHea",
+			"atxHeaderRE",
+			"header",
+			"state.header",
+			"(.*)\\.(zip|(tar\\.)?gz)",
+			".*",
+			"rm -rf (.*)",
+			".*",
+			"leave",
+			"employee",
 			"notice",
 			"document",
 			"main",
@@ -997,9 +975,25 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"$2",
+			"parstart \n\n$1 \n\nparend",
+			"parstart $1 parend",
+			"par-start $1 par-end",
+			"$0\n$1",
+			"$0 $1",
+			"$1\n$2\n$3\n$4",
+			"rm -rfv \"$1\"",
+			"rm -rfv \"$0_files\"",
+			"rm -rfv $0_files",
+			"rm -rfv \"$1\"",
+			"rm -rf $0.html\nrm -rf $0",
+			"rm -rf $0.html\nrm -rf %0",
+			"$0.html",
+			"attendance",
+			"leave",
 			"object",
 			"document",
 			"",
@@ -1049,177 +1043,41 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/application/_error.html.erb",
+					"file": "/C/Users/Alien/Downloads/Compressed/codemirror/codemirror-5.51.0/mode/rst/rst.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 287,
+						"buffer_size": 17584,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								239,
-								239
+								16468,
+								16474
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/models/employee.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2431,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1221,
-								1221
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 152.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/controllers/employees_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2336,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								935,
-								935
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 342.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/attendances/new.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1062,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								590,
-								590
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 171.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/admin/leaves/_admin_show_leave.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 960,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								435,
-								435
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/Alien/$1",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 142,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								142,
-								142
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5863.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1230,7 +1088,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 104.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1283,7 +1141,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 204.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1321,7 +1179,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 330.0,
+	"side_bar_width": 229.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

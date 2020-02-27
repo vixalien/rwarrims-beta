@@ -26,6 +26,8 @@ class ApplicationController < ActionController::Base
 
   def update_session
     if helpers.logged_in?
+      tf = TimezoneFinder.create
+      Time.zone = tf.timezone_at(lng: current_session.location.long.to_f,lat: current_session.location.lat.to_f)
       helpers.current_session.update(updated_at: DateTime.now)
       # Get a new location if 10 minutes have elapsed
       if DateTime.now.to_i - helpers.current_session.loc_updated_at.to_i > (60 * 10)

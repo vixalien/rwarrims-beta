@@ -12,3 +12,11 @@
 </div>
 
 </div>
+
+<% content_for :panel do %>
+<ul class="menu">
+  <% url = @url.include?("?") ? @url+"&format=pdf" : @url+"?format=pdf" %>
+  <li><%= link_to 'Generate PDF',  url %></li>
+</ul>
+<% end %>
+<% content_for :panel_type do %>inline<% end %>

@@ -18,7 +18,7 @@
 			<% end %>
 		</p>
 		<p>
-			<%= button_to "Check #{not_state}", "/attendances.json", remote: :true, data: { confirm: 'Are you sure?' } %>
+			<%= button_to "Check #{not_state}", "/attendances", data: { confirm: 'Are you sure?' } %>
 		</p>
 	<% else %>
 		<h3>You never checked attendance</h3>

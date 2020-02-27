@@ -32,7 +32,9 @@
           <div class="attendance">
             <% if @admin %>
             <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/<%= attendance.location.long %>,<%= attendance.location.lat %>,16/1000x400?access_token=pk.eyJ1Ijoidml4YWxpZW4iLCJhIjoiY2s2Nml4dWNxMDg4ZDNkcDZyamRwaG5uZiJ9.WinoZhj2C2TxDLXmbkzlpg" class="attendance-location"><br>
-            <b>At </b> <%= attendance.location.city %>, <%= attendance.location.state %> <%= attendance.location.country %>
+            <b>At </b> <%= attendance.location.city %>, <%= attendance.location.state %> <%= attendance.location.country %><br>
+            <b>Browser </b> <%= attendance.useragent.browser %><br>
+            <b>OS </b> <%= attendance.useragent.os %><br>
             <% end %>
             <b>Check In</b> <%= attendance.created_at.strftime("%r on %a %d %b %Y") %><br>
             <b>Check Out</b> <%= attendance.updated_at.strftime("%r on %a %d %b %Y") %><br>

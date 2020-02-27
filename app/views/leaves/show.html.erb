@@ -1,6 +1,6 @@
 <h2>Leave</h2>
 
-<div class="blocks">
+<div class="blocks hours-main-block">
 <div class="block leave-block">
   <%= render "leave_show", leave: @leave %>
   <div class="flex">
@@ -13,6 +13,8 @@
 <% content_for :panel do %>
 <h3>Actions</h3>
 <ul class="menu">
+	<% url = @url.include?("?") ? @url+"&format=pdf" : @url+"?format=pdf" %>
+  <li><%= link_to 'Generate PDF',  url %></li>
   <li><%= link_to 'Back', leaves_path %></li>
 </ul>
 <% end %>

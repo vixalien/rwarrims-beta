@@ -56,12 +56,17 @@ module ApplicationHelper
     { country: a["#{g}_countryName"], city: a["#{g}_city"], ip: a["#{g}_request"], lat: a["#{g}_latitude"], long: a["#{g}_longitude"], state: a["#{g}_region"] }
   end
 
+  def get_ua useragent
+    { os: useragent.split("(")[1].split(")")[0], browser: useragent.split("(").last.split(")").last.split(" ").first.gsub("/", " version "), full: useragent }
+  end
+
   def log_in employee, useragent, ip
     s = employee.sessions.new(state: "in", cookie: generateuniquesecure)
-    ua = s.build_useragent(os: useragent.split("(")[1].split(")")[0], browser: useragent.split("(").last.split(")").last.split(" ").first.gsub("/", " version "), full: useragent )
+    ua = s.build_useragent(get_ua(useragent))
     cookies.encrypted[:ss_id] = {value: s.cookie,expires: Time.now + (60*60*24*10)}
     s.build_location(get_loc ip)
     s.loc_updated_at = DateTime.now
+    ua.save
     s.save
   end
 

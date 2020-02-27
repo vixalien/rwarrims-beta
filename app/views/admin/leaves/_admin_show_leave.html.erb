@@ -3,6 +3,10 @@
   <%= leave.reason %>
 </p>
 <p>
+  <strong>Category </strong>
+  <%= getCategoryId leave.category %>
+</p>
+<p>
   <strong>By </strong>
   <%= link_to leave.employee.names, admin_employee_path(leave.employee) %>
 </p>
