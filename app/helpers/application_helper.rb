@@ -64,7 +64,7 @@ module ApplicationHelper
     s = employee.sessions.new(state: "in", cookie: generateuniquesecure)
     ua = s.build_useragent(get_ua(useragent))
     cookies.encrypted[:ss_id] = {value: s.cookie,expires: Time.now + (60*60*24*10)}
-    s.build_location(get_loc ip)
+    s.build_location()
     s.loc_updated_at = DateTime.now
     ua.save
     s.save
